@@ -6,39 +6,39 @@ We provide a co-occurrence matrix `co_occurrence.csv` of the 3000 most frequent 
 
 Tasks have to be completed in the order given. Execute the command `python3 pca_test.py <i>`, where `i` is the task number (1-6) till which you want to test your code. For example, if you want to test till task 2, run the command `python3 pca_test.py 2`.
 
-### Task 1 (10 points)
+### Task 1
 
 1. Complete the `pca_approx` function in `pca.py`.
 2. In part 1 of `pca_test.py`, set `m` to be the number of principal components you want to find (note that this will be the length of the embedding for each word). Test for different values of `m`, say 10, 50, 100, 200, etc.
 3. Observe the plot of the first `m` eigenvalues and note the rate of decay in the eigenvalues.
 4. Note the percentage of variance explained by the first `m` eigenvectors. It should be more than 80% for `m=100` if your implementation is correct.
 
-### Task 2 (10 points)
+### Task 2
 
 1. Complete the `compute_embedding` function in `pca.py` to get the `3000 x m` dimensional word embedding matrix `E`.
 2. Complete the `find_embedding` and `find_most_sim_word` functions in `utils.py`.
 3. In part 2 of `pca_test.py`, pick some word(s), e.g. "university", "learning", etc. and use the `find_most_sim_word` function to find the most similar word.
 
-### Task 3 (10 points)
+### Task 3
 
 1. Complete the `find_info_ev` function in `utils.py`, which finds the words corresponding to `k` largest magnitude elements of a given eigenvector.
 2. In part 3 of `pca_test.py`, choose a set of eigenvectors and the number of words corresponding to each eigenvector to see what kind of information it captures.
 
-### Task 4 (10 points)
+### Task 4
 
 In this part, we see that certain directions in the embedded space correspond to specific syntactic or semantic concepts. Let `w(1)` be the word embedding for "man" and `w(2)` be the word embedding for "woman". Let __`w`__ be the unit vector in the direction of `w(1)-w(2)`.
 
 1. Complete the `comparative_projections` function in `utils.py`.
 2. In part 4 of `pca_test.py`, we use this function and plot the set of projections for the list of words ["boys", "girls", "father", "mother", "king", "queen", "he", "she", "john", "mary", "wall", "tree"] onto the vector __`w`__. You will observe that the words associated with female gender are plotted on one side of the graph, whereas those connected to male gender appear on the other side of the graph. We repeat the previous step for the list of words ["mathematics", "arts", "literature", "doctor", "engineer", "science", "teacher", "history", "author", "john", "mary"] with respect to the words "man" and "woman" to generate a second plot. Do you observe a gender bias in the embeddings?
 
-### Task 5 (10 points)
+### Task 5
 
 Now, we use the embeddings to solve word analogy tasks. For example, consider an analogy question --- "man is to woman as king is to ____", where the goal is to fill in the blank space. This can be solved by finding the word whose embedding is closest to `w(woman)`-`w(man)`+`w(king)` in cosine similarity (`w(i)` represents the word embedding for the word `i`). You can do this by a nearest neighbor search across the entire dictionary, excluding the three words "man", "woman", "king" which already appear in the analogy as they cannot be valid answers to the question.
 
 1. Complete the `find_analog` function in `utils.py`.
 2. In part 5 of `pca_test.py`, test it using a set of words for an analogy question, such as the one given in the example. Note the accuracy of the word embeddings you have constructed on the word analogy task. It should be more than 65% if your implementation is correct.
 
-### Task 6 (10 points)
+### Task 6
 
 In this question, we use the similarity metric to distinguish synonyms from antonyms. The cosine similarity of a word with its synonym would be greater than the cosine similarity with its antonym. For example, the cosine similarity between the embeddings of the words "often" and "frequently" is expected to be greater than the cosine similarity between the embeddings of the words "often" and "rare". We have provided a dataset `similarity.txt` consisting of triplets of words, where the second word is a synonym of the first word, and the third word is an antonym of the first word.
 
