@@ -9,17 +9,7 @@
 </head>
 
 <body class="stackedit">
-  <div class="stackedit__html"><h1 id="hidden-markov-models-50-points">Hidden Markov Models (50 points)</h1>
-
-<h2 id="Instructions">General instructions</a></h2><ul>
-<li>In this task you will implement various inference algorithms for <strong>HMM</strong> and also apply them to sentence tagging. We provide the bootstrap code and you are expected to complete the functions.</li>
-<li>Do not import libraries other than those already imported in the original code.</li>
-<li>Please follow the type annotations. You have to make the function’s return values match the required type.</li>
-<li>Only modifications in files {<code>hmm.py</code>, <code>tagger.py</code>} in the "work" directory will be accepted and graded. All other modifications will be ignored. You can work directly on Vocareum, or download all files from "work", code in your own workspace, and then upload the changes (recommended). </li>
-<li>Click the Submit button when you are ready to submit your code for auto-grading. Your final grade is determined by your <strong>last</strong> submission. </li>
-</ul>    
-  
-
+  <div class="stackedit__html"><h1 id="hidden-markov-models-50-points">Hidden Markov Models </h1>
 
 <h2 id="implementation-30-points">Q1 Implement the inference algorithms</h2>
 In <code>hmm.py</code>, you will find a class called HMM whose attributes specify the model parameters of a Hidden Markov Model (including its initial state probability, transition probability, and emission probability).
