@@ -9,15 +9,8 @@
 </head>
 
 <body class="stackedit">
-  <div class="stackedit__html"><h1 id="general-instructions">K-means Clustering (50 points)</h1>
+  <div class="stackedit__html"><h1 id="general-instructions">K-means Clustering</h1>
 
-<h2 id="Instructions">General instructions</a></h2><ul>
-<li>In this task you will implement the <strong>K-means</strong> algorithm and its applications. We provide the bootstrap code and you are expected to complete the functions.</li>
-<li>Do not import libraries other than those already imported in the original code.</li>
-<li>Please follow the type annotations. You have to make the function’s return values match the required type.</li>
-<li>Only modifications in files {<code>kmeans.py</code>} in the "work" directory will be accepted and graded. All other modifications will be ignored. You can work directly on Vocareum, or download all files from "work", code in your own workspace, and then upload the changes (recommended). </li>
-<li>Click the Submit button when you are ready to submit your code for auto-grading. Your final grade is determined by your <strong>last</strong> submission. </li>
-</ul>  
   
 <h2 id="high-level-description">High Level Description</h2>
 <p>In this assignment you are asked to implement:</p>
@@ -27,10 +20,6 @@
 <li>the nearest neighbor algorithm using the K-means centroids,</li>
 <li>image compression via the K-means algorithm.</li>
 </ul>
-
-<p>NOTE: 
-Depending on your environment you may need to install the python library named "pillow", which is used by matplotlib to process some of the images needed for this assignment. 
-You can install it by running "pip3 install pillow" in your command line.</p>
 
 <h2 id="k-means-clustering">Q1. K-means++ initialization</h2>
 K-means++ generally performs much better than the vanilla K-means algorithm.
@@ -82,16 +71,6 @@ function <code>transform_image</code> following the comments in the code.
 After your implementation, run <code>KmeansTest.py</code> again. You should be able to see an image <code>compressed_baboon.png</code> in the plots folder. You can see that this image is slightly distorted as compared to the original baboon.tiff.
 The ideal result should take about 35-40 iterations and the Mean Square Error (between the two images) should be less than 0.0098. It takes about 1-2 minutes to complete normally.</p>
 
-
-<h2 id="grading-guidelines-50-points">Grading Guidelines:</h2>
-<ul>
-<li>get_k_means_plus_plus_center_indices - 5 points (5 test cases)</li>
-<li>Kmeans class - 15 points (5 test cases) </li>
-<li>KmeansClassifier class - 20 points (4 test cases) </li>
-<li>transform_image - 10 points (2 test cases)</li>
-</ul>
-
-Note: it takes a few minutes for the grading to finish.
 </div>
 </body>
 
