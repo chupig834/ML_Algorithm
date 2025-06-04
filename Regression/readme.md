@@ -1,12 +1,12 @@
 # Regression
 
-### Part 1.1 Mean Square Error [¶](#Q1.1-Mean-absolute-Error-%285-points%29)
+### Part 1.1 Mean Square Error 
 
 Given a linear model parameter $w$ and a data set specified by $X$ and $y$, compute the mean square error.
 
 - `TODO 1` Complete `def mean_square_error(w, X, y)` in `linear_regression.py`
 
-### Part 1.2 Linear Regression [¶](#Q1.2-Linear-Regression-%285-points%29)
+### Part 1.2 Linear Regression 
 
 Based on what we discussed in the lectures, implement linear regression with no regularization using a training data set $(X,y)$ and return the model parameter $w$. You do not need to worry about non-invertible matrices for this part. You should use numpy inverse function directly (the whole implementation can in fact be as simple as one or two lines of code).
 
@@ -14,7 +14,7 @@ Based on what we discussed in the lectures, implement linear regression with no 
 
 Once you finish Part 1.1 and Part 1.2, you should be able to run `linear_regression_test.py` and test these two parts. Read the output, and check your dimension of $w$ (should be 12 in this case) and MSE for training, evaluation and testing datasets (should all be between 0.5\~0.6).
 
-### Part 1.3 Regularized Linear Regression [¶](#Q1.4-Regularized-Linear-Regression-%285-points%29)
+### Part 1.3 Regularized Linear Regression 
 
 To prevent overfitting, we now add L2 regularization with a regularization parameter $\\lambda$.
 
@@ -22,7 +22,7 @@ To prevent overfitting, we now add L2 regularization with a regularization param
 
 Once you finish this part, run linear\_regression\_test.py again. You should see a better MSE for the test data.
 
-### Part 1.4 Tune the regularization parameter [¶](#Q1.5-Tune-the-Regularized-Linear-Hypter_Parameter-%2810-points%29)
+### Part 1.4 Tune the regularization parameter
 
 Now try to tune the regularization parameter among the following 15 values: $2^{-14}, 2^{-13}, \\ldots, 2^{-1}, 2^{0}=1$. More specifically, for each value, use the given training set and the `regularized_linear_regression` function you implemented in Part 1.3 to train a model, then use the given validation set and the `mean_square_error` function you implemented in Part 1.1 to evaluate the model. Finally return the best value corresponding to the model with the lowest mean square error.
 
@@ -30,7 +30,7 @@ Now try to tune the regularization parameter among the following 15 values: $2^{
 
 Once you finish this part, run linear\_regression\_test.py again. The best lambda happens to be $2^{-14}$ in this case.
 
-### Part 1.5 Polynomial regression [¶](#Q1.6-Polynomial-Regression-%2810-points%29)
+### Part 1.5 Polynomial regression
 
 In the lectures, we discussed polynomial regression for the one-dimensional case. Here, you will implement a simplified version of the polynomial regression for high-dimensional data, by only raising each feature to some power and ignoring "crossed" features. For example, if we have a two-dimensional feature $(x\_1, x\_2)$, then for a 2-degree polynomial regression, we will map this feature to $(x\_1, x\_2, x\_1^2, x\_2^2)$ (note that there is no "crossed" feature $x\_1x\_2$).
 
