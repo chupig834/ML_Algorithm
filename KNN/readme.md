@@ -1,4 +1,4 @@
-# K-Nearest Neighbours for Binary Classification (50 points)
+# K-Nearest Neighbours for Binary Classification
 
 ## 📚 Background
 
