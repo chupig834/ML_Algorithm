@@ -1,20 +1,10 @@
-# Transformer Implementation (60 points)
+# Transformer Implementation
 
 The Transformer architecture is important for ML because it revolutionized NLP by introducing the self-attention mechanism, enabling effective modeling of long-range dependencies in sequential data. This led to state-of-the-art performance in various NLP tasks such as machine translation, text generation, and sentiment analysis. In this problem, you will implement a tiny decoder-only Transformer architecture and gain insight into its basic structure.
 
 The main purpose of this assignment is to familiarize you with the PyTorch framework and the Transformer architecture. To do this, you will train a small decoder-only Transformer model on the tiny Shakespeare dataset.
 
 Before diving into the coding, you may want to familiarize yourself with the Transformer architecture by reading the [original paper](https://arxiv.org/abs/1706.03762), "Attention Is All You Need". 
-
-## General Instructions
-
-You will implement core components of a decoder-only transformer model by completing the provided functions. The code structure follows the original transformer architecture with some simplifications for educational purposes.
-
-- Do not import libraries other than those already imported in the original code.
-- Follow the type annotations and ensure function return values match the required types.
-- Only modifications in `transformer_model.py` will be accepted and graded.
-- You can work directly in Vocareum or download the files from "work", code in your own workspace, and upload the changes (recommended). If you work on Vocareum directly, you need to refresh the page for the generated plots to show up.
-- Click Submit when ready to submit your code for auto-grading. Your final grade is determined by your last submission.
 
 ## Implementation Tasks
 
@@ -77,32 +67,6 @@ Required steps:
 2. Handle sequence cropping
 3. Implement sampling logic
 
-## Grading Criteria
-
-Our grading scripts run 10 tests to verify your implementation works correctly. Each test is worth 6 points, for a total of 60 points:
-
-1. **Attention Head Implementation** (6 points): Tests if the attention head correctly computes attention scores and applies weights (TODO 1)
-
-2. **Multi-Head Attention Implementation** (6 points): Verifies that multiple attention heads process and combine information properly (TODO 2)
-
-3. **Transformer Block Implementation** (6 points): Tests the complete transformer block with layer normalization and residual connections (TODO 3)
-
-4. **Embeddings Implementation** (6 points): Tests token and position embeddings functionality (TODO 4)
-
-5. **Transformer Forward Implementation** (6 points): Tests the main transformer computation and output projection (TODO 5)
-
-6. **Loss Computation** (6 points): Verifies that cross-entropy loss is computed correctly (TODO 6)
-
-7. **Generation Implementation** (6 points): Tests the autoregressive token generation functionality (TODO 7)
-
-8. **Attention Mask** (6 points): Tests if causal masking in attention works correctly (related to TODO 1)
-
-9. **Layer Normalization** (6 points): Tests if layer normalization is applied correctly (related to TODO 3)
-
-10. **End-to-End Training** (6 points): Tests that the complete model can train and improve on the Shakespeare dataset (requires all TODOs to be implemented correctly)
-
-Total: 60 points
-
 ## Testing
 
 Run the training script to verify your implementation:
@@ -121,8 +85,6 @@ You should observe the losses decreasing over the course of training, and the ge
 The training process takes a few minutes on a CPU and less on a GPU. The model will generate a text sample before and after training so you can observe the improvement. 
 
 ## How Training and Evaluation Work
-
-This assignment implements a character-level language model trained on Shakespeare's text. Here's how the training and evaluation process works:
 
 ### Data Processing
 - The code downloads a "tiny Shakespeare" dataset and processes it at the character level
