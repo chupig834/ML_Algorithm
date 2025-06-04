@@ -1,4 +1,4 @@
-# **Decision Trees and Boosting (30 points)**  
+# **Decision Trees and Boosting**  
 
 ## **Overview**  
 In this assignment, you will explore decision trees and boosting methods, specifically focusing on AdaBoost. The assignment consists of three major parts:  
