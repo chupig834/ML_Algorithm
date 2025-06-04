@@ -1,4 +1,4 @@
-# CSCI567 Spring 2025 - Q-Learning Coding Assignment
+# Q-Learning Coding Assignment
 
 ## Overview
 
@@ -30,5 +30,6 @@ Defines the `FiniteMDP` class representing a Markov Decision Process with finite
 
 ## Some recommendations
 - Try to vectorize your code whenever possible.
-- As in `playground.ipynb`, you may use the `generate_random_mdp` function from `utils.py` to create random MDPs for testing your agent. Below is an example learning curve:
+- As in `playground.ipynb`, you may use the `generate_random_mdp` function from `utils.py` to create random MDPs for testing your agent.
+- Below is an example learning curve:
 ![Learning Curve](./example_learning_curve.png)
