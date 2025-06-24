@@ -5,10 +5,6 @@ import argparse
 import numpy as np
 import json
 
-###################################
-#   Only modify the TODO blocks   #
-###################################
-
 
 # 1. One linear Neural Network layer with forward and backward steps
 class linear_layer:
@@ -34,20 +30,8 @@ class linear_layer:
         self.params = dict()
         self.gradient = dict()
 
-        ###############################################################################################
-        # TODO: Use np.random.normal() with mean 0 and standard deviation 0.1 to initialize 
-        #   - self.params['W'] 
-        #   - self.params['b']
-        ###############################################################################################
-
         self.params['W'] = np.random.normal(loc=0.0, scale=0.1, size=(input_D, output_D))
         self.params['b'] = np.random.normal(loc=0.0, scale=0.1, size=(1, output_D))
-
-        ###############################################################################################
-        # TODO: Initialize the following two (gradients) with zeros
-        #   - self.gradient['W']
-        #   - self.gradient['b']
-        ###############################################################################################
 
         self.gradient['W'] = np.zeros((input_D, output_D))
         self.gradient['b'] = np.zeros((1, output_D))
@@ -64,11 +48,6 @@ class linear_layer:
             Return:
             - forward_output: A N-by-output_D numpy array, where each 'row' is an output example/instance.
         """
-
-        ################################################################################
-        # TODO: Implement the linear forward pass. Store the result in forward_output  #
-        ################################################################################
-
         '''
         1. forward_ouput is like a logits (pre-activation outputs). It represent the raw score that come out of a linear layer 
         '''
@@ -93,15 +72,6 @@ class linear_layer:
             Return:
             - backward_output: A N-by-input_D numpy array, where each 'row' (say row i) is the partial derivatives of the mini-batch loss w.r.t. X[i].
         """
-
-        #################################################################################################
-        # TODO: Implement the backward pass (i.e., compute the following three terms)
-        #   - self.gradient['W'] (input_D-by-output_D numpy array, the gradient of the mini-batch loss w.r.t. self.params['W'])
-        #   - self.gradient['b'] (1-by-output_D numpy array, the gradient of the mini-batch loss w.r.t. self.params['b'])
-        #   - backward_output (N-by-input_D numpy array, the gradient of the mini-batch loss w.r.t. X)
-        # only return backward_output, but need to compute self.gradient['W'] and self.gradient['b']
-        #################################################################################################
-
         '''
         grad -> It is a gradient of the loss w.r.t the forward_output.
             These are the sensitivities of the loss to your output - use them to update your weights during training 
@@ -151,9 +121,6 @@ class relu:
             - forward_output: A numpy array of the same shape of X
         """
 
-        ################################################################################
-        # TODO: Implement the relu forward pass. Store the result in forward_output    #
-        ################################################################################
         self.mask = X > 0
         forward_output = X * self.mask
 
@@ -172,11 +139,6 @@ class relu:
             Return:
             - backward_output: A numpy array of the same shape as X, where each element is the partial derivative of the mini-batch loss w.r.t. the corresponding element in  X.
         """
-
-        ####################################################################################################
-        # TODO: Implement the backward pass
-        # You can use the mask created in the forward step.
-        ####################################################################################################
         backward_output = grad * self.mask
 
 
@@ -196,11 +158,6 @@ class tanh:
             - forward_output: A numpy array of the same shape of X
         """
 
-        ################################################################################
-        # TODO: Implement the tanh forward pass. Store the result in forward_output
-        # You can use np.tanh()
-        ################################################################################
-
         forward_output = np.tanh(X)
 
         return forward_output
@@ -215,11 +172,6 @@ class tanh:
             Return:
             - backward_output: A numpy array of the same shape as X, where each element is the partial derivative of the mini-batch loss w.r.t. the corresponding element in  X.
         """
-
-        ####################################################################################################
-        # TODO: Implement the backward pass
-        # Derivative of tanh(z) is (1 - tanh(z)^2)
-        ####################################################################################################
 
         tanh_x = np.tanh(X)  # re-compute tanh(X) if not stored
         derivative = 1 - tanh_x**2
@@ -257,10 +209,6 @@ class dropout:
             - forward_output: A numpy array of the same shape of X (the output of dropout)
         """
 
-        ################################################################################
-        #  TODO: We provide the forward pass to you. You only need to understand it.   #
-        ################################################################################
-
         if is_train:
             self.mask = (np.random.uniform(0.0, 1.0, X.shape) >= self.r).astype(float) * (1.0 / (1.0 - self.r))
         else:
@@ -280,11 +228,6 @@ class dropout:
             - backward_output: A numpy array of the same shape as X, where each element is the partial derivative of the mini-batch loss w.r.t. the corresponding element in X.
         """
 
-        ####################################################################################################
-        # TODO: Implement the backward pass
-        # You can use the mask created in the forward step
-        ####################################################################################################
-
         backward_output = grad * self.mask
         return backward_output
 
@@ -302,18 +245,10 @@ def miniBatchGradientDescent(model, momentum, _alpha, _learning_rate):
                 g = module.gradient[key]
 
                 if _alpha <= 0.0:
-                    ####################################################################################
-                    # TODO: update the model parameter module.params[key] by a step of gradient descent.
-                    # Note again that the gradient is stored in g already.
-                    ####################################################################################
                     module.params[key] -= _learning_rate * g
 
 
                 else:
-                    ###################################################################################################
-                    # TODO: Update the model parameter module.params[key] by a step of gradient descent with momentum.
-                    # Access the previous momentum by momentum[module_name + '_' + key], and then update it directly.
-                    ###################################################################################################
                     momentum_key = module_name + '_' + key
 
                     # Update momentum: v = alpha * v_prev + learning_rate * gradient
@@ -421,10 +356,6 @@ def main(main_params):
 
             ### backward pass ###
             grad_a2 = model['loss'].backward(a2, y)
-            ######################################################################################
-            # TODO: Call the backward methods of every layer in the model in reverse order.
-            # We have given the first and last backward calls (above and below this TODO block).
-            ######################################################################################
             grad_d1 = model['L2'].backward(d1, grad_a2)
             grad_h1 = model['drop1'].backward(h1, grad_d1)
             grad_a1 = model['nonlinear1'].backward(a1, grad_h1)
